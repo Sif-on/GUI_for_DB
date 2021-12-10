@@ -10,7 +10,7 @@
         Title="DB" Height="450" Width="800">
     <Grid x:Name="Grid">
         <DataGrid x:Name="TableGrid"
-        AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=columns}">
+                  AutoGenerateColumns="True">
             <DataGrid.Columns>
             </DataGrid.Columns>
         <Button x:Name="add_btn" Content="Добавить"

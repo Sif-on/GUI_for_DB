@@ -10,14 +10,14 @@ namespace GUI_for_DB.ViewModels
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string _Receipts { get; set; }
+        public string Receipts { get; set; }
         public string Wishes { get; set; }
         public ClientsTalbeModel(Clients clients)
         {
-            ID = clients.ID;
+            ID = clients.ID.ToString();
             Name = clients.Name;
             Surname = clients.Surname;
-            _Receipts = clients.Receipts.RelationshipName;
+            Receipts = clients.Receipts.RelationshipName;
             Wishes = clients.Wishes.RelationshipName;
         }
     }

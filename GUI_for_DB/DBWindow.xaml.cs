@@ -25,17 +25,18 @@ namespace GUI_for_DB
             // Test Data.
             List<ClientsTalbeModel> tablesList = new();
             
-            using (PharmacyDBEntities entities = new PharmacyDBEntities())
+            using (PharmacyDBEntities entities = new())
             {
                 List<Clients> ClientsList = entities.Clients.ToList();
                 foreach (Clients client in ClientsList)
                 {
                     tablesList.Add(new ClientsTalbeModel(client));
                 }
+                if(tablesList.Count > 0)
+                    TableGrid.ItemsSource = tablesList.ToList();
                 entities.Dispose();
             }
-            if(tablesList.Count > 0)
-                TableGrid.ItemsSource = tablesList;
+
             // Mode of interacting with data
             switch (Mode)
             {

@@ -8,6 +8,6 @@ namespace GUI_for_DB.ViewModels
 {
     public class TableModel 
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
     }
 }
