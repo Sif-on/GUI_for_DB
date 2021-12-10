@@ -8,5 +8,20 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="DB" Height="450" Width="800">
+    <Grid x:Name="Grid">
+        <DataGrid x:Name="TableGrid"
+        AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=columns}">
+            <DataGrid.Columns>
+            </DataGrid.Columns>
+        <!-- <Button x:Name="add_btn" Content="Добавить"
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+            Click="add_btn_cl"/>
+        <Button x:Name="del_btn" Content="Удалить"
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center"
+            Click="del_btn_cl"/> -->
+        </DataGrid>
+    </Grid>
 
 </Window>
