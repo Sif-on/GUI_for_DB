@@ -31,6 +31,7 @@ namespace GUI_for_DB
             switch (Mode)
             {
                 case 0:
+               
                     TableGrid.IsReadOnly = true;
                     TableGrid.ItemsSource = tablesList;
                     // add.Visibility = Visibility.Collapsed;
@@ -56,16 +57,16 @@ namespace GUI_for_DB
             //         TableGrid.
             // }
         }
-        // private void add_btn_cl(object sender, RoutedEventArgs e)
-        // {
-        //     Button add = (Button)sender;
-        //     // MessageBox.Show("DELETED");
-        // }
-        // private void del_btn_cl(object sender, RoutedEventArgs e)
-        // {
-        //     Button del = (Button)sender;
-        //     // MessageBox.Show("DELETED");
-        // }
+        private void add_btn_cl(object sender, RoutedEventArgs e)
+        {
+            Button add = (Button)sender;
+            MessageBox.Show("DELETED");
+        }
+        private void del_btn_cl(object sender, RoutedEventArgs e)
+        {
+            Button del = (Button)sender;
+            MessageBox.Show("DELETED");
+        }
     }
     public class Table
     {

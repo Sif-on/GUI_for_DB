@@ -6,4 +6,27 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="PharmacyDB.edmx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EntityDeploy Include="PharmacyDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PharmacyDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Security" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="PharmacyDB.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PharmacyDB.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>
