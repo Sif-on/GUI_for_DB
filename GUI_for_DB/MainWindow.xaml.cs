@@ -15,14 +15,52 @@ using System.Windows.Shapes;
 
 namespace GUI_for_DB
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
+        private int selectedMode = 0;
+        public MainWindow() {
             InitializeComponent();
+        }
+
+        private void clicked_btn_EventHandler(object sender, RoutedEventArgs e) {
+            Button b = (Button)sender;
+            switch (b.Name) {
+                case "ViewBtn":
+                    ViewBtn.Background = Brushes.White;
+                    InsertBtn.Background = Brushes.Gray;
+                    EditBtn.Background = Brushes.Gray;
+                    DeleteBtn.Background = Brushes.Gray;
+                    selectedMode = 0;
+                    break;
+                case "InsertBtn":
+                    ViewBtn.Background = Brushes.Gray;
+                    InsertBtn.Background = Brushes.White;
+                    EditBtn.Background = Brushes.Gray;
+                    DeleteBtn.Background = Brushes.Gray;
+                    selectedMode = 1;
+                    break;
+                case "EditBtn":
+                    ViewBtn.Background = Brushes.Gray;
+                    InsertBtn.Background = Brushes.Gray;
+                    EditBtn.Background = Brushes.White;
+                    DeleteBtn.Background = Brushes.Gray;
+                    selectedMode = 2;
+                    break;
+                default:
+                    ViewBtn.Background = Brushes.Gray;
+                    InsertBtn.Background = Brushes.Gray;
+                    EditBtn.Background = Brushes.Gray;
+                    DeleteBtn.Background = Brushes.White;
+                    selectedMode = 3;
+                    break;
+                
+            }
+        }
+        
+        private void click_Table_EventHandler( object sender, RoutedEventArgs e){
+            Button b = (Button)sender;
+            DBWindow w = new DBWindow(selectedMode, b.Name);
+            w.Show();
         }
     }
 }
