@@ -71,7 +71,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Grid.Row="0" Content="Table1" x:Name="Table1" Click="click_Table_EventHandler"/>
+            <Button Grid.Column="0" Grid.Row="0" Content="Table1" x:Name="Clients" Click="click_Table_EventHandler"/>
             <Button Grid.Column="1" Grid.Row="0" Content="Table2" x:Name="Table2" Click="click_Table_EventHandler"/>
             <Button Grid.Column="2" Grid.Row="0" Content="Table3" x:Name="Table3" Click="click_Table_EventHandler"/>
             <Button Grid.Column="0" Grid.Row="1" Content="Table4" x:Name="Table4" Click="click_Table_EventHandler"/>

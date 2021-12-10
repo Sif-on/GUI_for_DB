@@ -9,14 +9,31 @@
 
 using System;
 using System.ComponentModel;
-using System.Data.EntityClient;
-using System.Data.Objects;
-using System.Data.Objects.DataClasses;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Core.Objects.DataClasses;
+using System.Data.Entity.Core.EntityClient;
+
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region Метаданные связи EDM
+
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Receipts__ID_Cli__44FF419A", "Clients", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Clients), "Receipts", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Receipts), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Wishes__ID_Clien__412EB0B6", "Clients", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Clients), "Wishes", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Wishes), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Discounts__ID_Ph__48CFD27E", "Pharmacy", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Pharmacy), "Discounts", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Discounts), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Discounts__ID_Pr__49C3F6B7", "Drugs", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Drugs), "Discounts", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Discounts), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Drugs__ID_Farm_G__34C8D9D1", "Pharmacological_Group", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Pharmacological_Group), "Drugs", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Drugs), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Drugs__ID_Instru__35BCFE0A", "Instructions", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Instructions), "Drugs", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Drugs), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Receipts__ID_Pro__45F365D3", "Drugs", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Drugs), "Receipts", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Receipts), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Employees__ID_Po__30F848ED", "Positions", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Positions), "Employees", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Employees), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Pharmacy__ID_Dir__3A81B327", "Employees", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Employees), "Pharmacy", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Pharmacy), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Receipts__ID_Pha__440B1D61", "Pharmacy", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Pharmacy), "Receipts", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Receipts), true)]
+[assembly: EdmRelationshipAttribute("PharmacyDBModel", "FK__Wishes__ID_Pharm__403A8C7D", "Pharmacy", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.One, typeof(GUI_for_DB.Pharmacy), "Wishes", System.Data.Entity.Core.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GUI_for_DB.Wishes), true)]
+
+#endregion
+
 namespace GUI_for_DB
 {
     #region Контексты
@@ -63,6 +80,2683 @@ namespace GUI_for_DB
     
         #endregion
     
+        #region Свойства ObjectSet
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Clients> Clients
+        {
+            get
+            {
+                if ((_Clients == null))
+                {
+                    _Clients = base.CreateObjectSet<Clients>("Clients");
+                }
+                return _Clients;
+            }
+        }
+        private ObjectSet<Clients> _Clients;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Discounts> Discounts
+        {
+            get
+            {
+                if ((_Discounts == null))
+                {
+                    _Discounts = base.CreateObjectSet<Discounts>("Discounts");
+                }
+                return _Discounts;
+            }
+        }
+        private ObjectSet<Discounts> _Discounts;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Drugs> Drugs
+        {
+            get
+            {
+                if ((_Drugs == null))
+                {
+                    _Drugs = base.CreateObjectSet<Drugs>("Drugs");
+                }
+                return _Drugs;
+            }
+        }
+        private ObjectSet<Drugs> _Drugs;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Employees> Employees
+        {
+            get
+            {
+                if ((_Employees == null))
+                {
+                    _Employees = base.CreateObjectSet<Employees>("Employees");
+                }
+                return _Employees;
+            }
+        }
+        private ObjectSet<Employees> _Employees;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Instructions> Instructions
+        {
+            get
+            {
+                if ((_Instructions == null))
+                {
+                    _Instructions = base.CreateObjectSet<Instructions>("Instructions");
+                }
+                return _Instructions;
+            }
+        }
+        private ObjectSet<Instructions> _Instructions;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Pharmacological_Group> Pharmacological_Group
+        {
+            get
+            {
+                if ((_Pharmacological_Group == null))
+                {
+                    _Pharmacological_Group = base.CreateObjectSet<Pharmacological_Group>("Pharmacological_Group");
+                }
+                return _Pharmacological_Group;
+            }
+        }
+        private ObjectSet<Pharmacological_Group> _Pharmacological_Group;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Pharmacy> Pharmacy
+        {
+            get
+            {
+                if ((_Pharmacy == null))
+                {
+                    _Pharmacy = base.CreateObjectSet<Pharmacy>("Pharmacy");
+                }
+                return _Pharmacy;
+            }
+        }
+        private ObjectSet<Pharmacy> _Pharmacy;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Phones> Phones
+        {
+            get
+            {
+                if ((_Phones == null))
+                {
+                    _Phones = base.CreateObjectSet<Phones>("Phones");
+                }
+                return _Phones;
+            }
+        }
+        private ObjectSet<Phones> _Phones;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Positions> Positions
+        {
+            get
+            {
+                if ((_Positions == null))
+                {
+                    _Positions = base.CreateObjectSet<Positions>("Positions");
+                }
+                return _Positions;
+            }
+        }
+        private ObjectSet<Positions> _Positions;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Receipts> Receipts
+        {
+            get
+            {
+                if ((_Receipts == null))
+                {
+                    _Receipts = base.CreateObjectSet<Receipts>("Receipts");
+                }
+                return _Receipts;
+            }
+        }
+        private ObjectSet<Receipts> _Receipts;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Suppliers> Suppliers
+        {
+            get
+            {
+                if ((_Suppliers == null))
+                {
+                    _Suppliers = base.CreateObjectSet<Suppliers>("Suppliers");
+                }
+                return _Suppliers;
+            }
+        }
+        private ObjectSet<Suppliers> _Suppliers;
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        public ObjectSet<Wishes> Wishes
+        {
+            get
+            {
+                if ((_Wishes == null))
+                {
+                    _Wishes = base.CreateObjectSet<Wishes>("Wishes");
+                }
+                return _Wishes;
+            }
+        }
+        private ObjectSet<Wishes> _Wishes;
+
+        #endregion
+
+        #region Методы AddTo
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Clients. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToClients(Clients clients)
+        {
+            base.AddObject("Clients", clients);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Discounts. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToDiscounts(Discounts discounts)
+        {
+            base.AddObject("Discounts", discounts);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Drugs. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToDrugs(Drugs drugs)
+        {
+            base.AddObject("Drugs", drugs);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Employees. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToEmployees(Employees employees)
+        {
+            base.AddObject("Employees", employees);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Instructions. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToInstructions(Instructions instructions)
+        {
+            base.AddObject("Instructions", instructions);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Pharmacological_Group. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToPharmacological_Group(Pharmacological_Group pharmacological_Group)
+        {
+            base.AddObject("Pharmacological_Group", pharmacological_Group);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Pharmacy. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToPharmacy(Pharmacy pharmacy)
+        {
+            base.AddObject("Pharmacy", pharmacy);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Phones. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToPhones(Phones phones)
+        {
+            base.AddObject("Phones", phones);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Positions. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToPositions(Positions positions)
+        {
+            base.AddObject("Positions", positions);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Receipts. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToReceipts(Receipts receipts)
+        {
+            base.AddObject("Receipts", receipts);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Suppliers. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToSuppliers(Suppliers suppliers)
+        {
+            base.AddObject("Suppliers", suppliers);
+        }
+    
+        /// <summary>
+        /// Устаревший метод для добавления новых объектов в набор EntitySet Wishes. Взамен можно использовать метод .Add связанного свойства ObjectSet&lt;T&gt;.
+        /// </summary>
+        public void AddToWishes(Wishes wishes)
+        {
+            base.AddObject("Wishes", wishes);
+        }
+
+        #endregion
+
+    }
+
+    #endregion
+
+    #region Сущности
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Clients")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Clients : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Clients.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="surname">Исходное значение свойства Surname.</param>
+        /// <param name="name">Исходное значение свойства Name.</param>
+        public static Clients CreateClients(global::System.Int32 id, global::System.String surname, global::System.String name)
+        {
+            Clients clients = new Clients();
+            clients.ID = id;
+            clients.Surname = surname;
+            clients.Name = name;
+            return clients;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Surname
+        {
+            get
+            {
+                return _Surname;
+            }
+            set
+            {
+                OnSurnameChanging(value);
+                ReportPropertyChanging("Surname");
+                _Surname = StructuralObject.SetValidValue(value, false, "Surname");
+                ReportPropertyChanged("Surname");
+                OnSurnameChanged();
+            }
+        }
+        private global::System.String _Surname;
+        partial void OnSurnameChanging(global::System.String value);
+        partial void OnSurnameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Receipts__ID_Cli__44FF419A", "Receipts")]
+        public EntityCollection<Receipts> Receipts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Receipts>("PharmacyDBModel.FK__Receipts__ID_Cli__44FF419A", "Receipts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Receipts>("PharmacyDBModel.FK__Receipts__ID_Cli__44FF419A", "Receipts", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Wishes__ID_Clien__412EB0B6", "Wishes")]
+        public EntityCollection<Wishes> Wishes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Wishes>("PharmacyDBModel.FK__Wishes__ID_Clien__412EB0B6", "Wishes");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wishes>("PharmacyDBModel.FK__Wishes__ID_Clien__412EB0B6", "Wishes", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Discounts")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Discounts : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Discounts.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="iD_Pharmacy">Исходное значение свойства ID_Pharmacy.</param>
+        /// <param name="iD_Product">Исходное значение свойства ID_Product.</param>
+        /// <param name="discount_Percentage">Исходное значение свойства Discount_Percentage.</param>
+        /// <param name="date_Start">Исходное значение свойства Date_Start.</param>
+        /// <param name="date_Finish">Исходное значение свойства Date_Finish.</param>
+        public static Discounts CreateDiscounts(global::System.Int32 id, global::System.Int32 iD_Pharmacy, global::System.Int32 iD_Product, global::System.Int32 discount_Percentage, global::System.DateTime date_Start, global::System.DateTime date_Finish)
+        {
+            Discounts discounts = new Discounts();
+            discounts.ID = id;
+            discounts.ID_Pharmacy = iD_Pharmacy;
+            discounts.ID_Product = iD_Product;
+            discounts.Discount_Percentage = discount_Percentage;
+            discounts.Date_Start = date_Start;
+            discounts.Date_Finish = date_Finish;
+            return discounts;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Pharmacy
+        {
+            get
+            {
+                return _ID_Pharmacy;
+            }
+            set
+            {
+                OnID_PharmacyChanging(value);
+                ReportPropertyChanging("ID_Pharmacy");
+                _ID_Pharmacy = StructuralObject.SetValidValue(value, "ID_Pharmacy");
+                ReportPropertyChanged("ID_Pharmacy");
+                OnID_PharmacyChanged();
+            }
+        }
+        private global::System.Int32 _ID_Pharmacy;
+        partial void OnID_PharmacyChanging(global::System.Int32 value);
+        partial void OnID_PharmacyChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Product
+        {
+            get
+            {
+                return _ID_Product;
+            }
+            set
+            {
+                OnID_ProductChanging(value);
+                ReportPropertyChanging("ID_Product");
+                _ID_Product = StructuralObject.SetValidValue(value, "ID_Product");
+                ReportPropertyChanged("ID_Product");
+                OnID_ProductChanged();
+            }
+        }
+        private global::System.Int32 _ID_Product;
+        partial void OnID_ProductChanging(global::System.Int32 value);
+        partial void OnID_ProductChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Discount_Percentage
+        {
+            get
+            {
+                return _Discount_Percentage;
+            }
+            set
+            {
+                OnDiscount_PercentageChanging(value);
+                ReportPropertyChanging("Discount_Percentage");
+                _Discount_Percentage = StructuralObject.SetValidValue(value, "Discount_Percentage");
+                ReportPropertyChanged("Discount_Percentage");
+                OnDiscount_PercentageChanged();
+            }
+        }
+        private global::System.Int32 _Discount_Percentage;
+        partial void OnDiscount_PercentageChanging(global::System.Int32 value);
+        partial void OnDiscount_PercentageChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date_Start
+        {
+            get
+            {
+                return _Date_Start;
+            }
+            set
+            {
+                OnDate_StartChanging(value);
+                ReportPropertyChanging("Date_Start");
+                _Date_Start = StructuralObject.SetValidValue(value, "Date_Start");
+                ReportPropertyChanged("Date_Start");
+                OnDate_StartChanged();
+            }
+        }
+        private global::System.DateTime _Date_Start;
+        partial void OnDate_StartChanging(global::System.DateTime value);
+        partial void OnDate_StartChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date_Finish
+        {
+            get
+            {
+                return _Date_Finish;
+            }
+            set
+            {
+                OnDate_FinishChanging(value);
+                ReportPropertyChanging("Date_Finish");
+                _Date_Finish = StructuralObject.SetValidValue(value, "Date_Finish");
+                ReportPropertyChanged("Date_Finish");
+                OnDate_FinishChanged();
+            }
+        }
+        private global::System.DateTime _Date_Finish;
+        partial void OnDate_FinishChanging(global::System.DateTime value);
+        partial void OnDate_FinishChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Discounts__ID_Ph__48CFD27E", "Pharmacy")]
+        public Pharmacy Pharmacy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Discounts__ID_Ph__48CFD27E", "Pharmacy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Discounts__ID_Ph__48CFD27E", "Pharmacy").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pharmacy> PharmacyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Discounts__ID_Ph__48CFD27E", "Pharmacy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pharmacy>("PharmacyDBModel.FK__Discounts__ID_Ph__48CFD27E", "Pharmacy", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Discounts__ID_Pr__49C3F6B7", "Drugs")]
+        public Drugs Drugs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Drugs>("PharmacyDBModel.FK__Discounts__ID_Pr__49C3F6B7", "Drugs").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Drugs>("PharmacyDBModel.FK__Discounts__ID_Pr__49C3F6B7", "Drugs").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Drugs> DrugsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Drugs>("PharmacyDBModel.FK__Discounts__ID_Pr__49C3F6B7", "Drugs");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Drugs>("PharmacyDBModel.FK__Discounts__ID_Pr__49C3F6B7", "Drugs", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Drugs")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Drugs : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Drugs.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="iD_Supplier">Исходное значение свойства ID_Supplier.</param>
+        /// <param name="iD_Farm_Group">Исходное значение свойства ID_Farm_Group.</param>
+        /// <param name="iD_Instructions">Исходное значение свойства ID_Instructions.</param>
+        public static Drugs CreateDrugs(global::System.Int32 id, global::System.Int32 iD_Supplier, global::System.Int32 iD_Farm_Group, global::System.Int32 iD_Instructions)
+        {
+            Drugs drugs = new Drugs();
+            drugs.ID = id;
+            drugs.ID_Supplier = iD_Supplier;
+            drugs.ID_Farm_Group = iD_Farm_Group;
+            drugs.ID_Instructions = iD_Instructions;
+            return drugs;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Supplier
+        {
+            get
+            {
+                return _ID_Supplier;
+            }
+            set
+            {
+                OnID_SupplierChanging(value);
+                ReportPropertyChanging("ID_Supplier");
+                _ID_Supplier = StructuralObject.SetValidValue(value, "ID_Supplier");
+                ReportPropertyChanged("ID_Supplier");
+                OnID_SupplierChanged();
+            }
+        }
+        private global::System.Int32 _ID_Supplier;
+        partial void OnID_SupplierChanging(global::System.Int32 value);
+        partial void OnID_SupplierChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Farm_Group
+        {
+            get
+            {
+                return _ID_Farm_Group;
+            }
+            set
+            {
+                OnID_Farm_GroupChanging(value);
+                ReportPropertyChanging("ID_Farm_Group");
+                _ID_Farm_Group = StructuralObject.SetValidValue(value, "ID_Farm_Group");
+                ReportPropertyChanged("ID_Farm_Group");
+                OnID_Farm_GroupChanged();
+            }
+        }
+        private global::System.Int32 _ID_Farm_Group;
+        partial void OnID_Farm_GroupChanging(global::System.Int32 value);
+        partial void OnID_Farm_GroupChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Instructions
+        {
+            get
+            {
+                return _ID_Instructions;
+            }
+            set
+            {
+                OnID_InstructionsChanging(value);
+                ReportPropertyChanging("ID_Instructions");
+                _ID_Instructions = StructuralObject.SetValidValue(value, "ID_Instructions");
+                ReportPropertyChanged("ID_Instructions");
+                OnID_InstructionsChanged();
+            }
+        }
+        private global::System.Int32 _ID_Instructions;
+        partial void OnID_InstructionsChanging(global::System.Int32 value);
+        partial void OnID_InstructionsChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, true, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Recipe
+        {
+            get
+            {
+                return _Recipe;
+            }
+            set
+            {
+                OnRecipeChanging(value);
+                ReportPropertyChanging("Recipe");
+                _Recipe = StructuralObject.SetValidValue(value, "Recipe");
+                ReportPropertyChanged("Recipe");
+                OnRecipeChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Recipe;
+        partial void OnRecipeChanging(Nullable<global::System.Boolean> value);
+        partial void OnRecipeChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Price
+        {
+            get
+            {
+                return _Price;
+            }
+            set
+            {
+                OnPriceChanging(value);
+                ReportPropertyChanging("Price");
+                _Price = StructuralObject.SetValidValue(value, "Price");
+                ReportPropertyChanged("Price");
+                OnPriceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Price;
+        partial void OnPriceChanging(Nullable<global::System.Int32> value);
+        partial void OnPriceChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Discounts__ID_Pr__49C3F6B7", "Discounts")]
+        public EntityCollection<Discounts> Discounts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Discounts>("PharmacyDBModel.FK__Discounts__ID_Pr__49C3F6B7", "Discounts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Discounts>("PharmacyDBModel.FK__Discounts__ID_Pr__49C3F6B7", "Discounts", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Drugs__ID_Farm_G__34C8D9D1", "Pharmacological_Group")]
+        public Pharmacological_Group Pharmacological_Group
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacological_Group>("PharmacyDBModel.FK__Drugs__ID_Farm_G__34C8D9D1", "Pharmacological_Group").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacological_Group>("PharmacyDBModel.FK__Drugs__ID_Farm_G__34C8D9D1", "Pharmacological_Group").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pharmacological_Group> Pharmacological_GroupReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacological_Group>("PharmacyDBModel.FK__Drugs__ID_Farm_G__34C8D9D1", "Pharmacological_Group");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pharmacological_Group>("PharmacyDBModel.FK__Drugs__ID_Farm_G__34C8D9D1", "Pharmacological_Group", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Drugs__ID_Instru__35BCFE0A", "Instructions")]
+        public Instructions Instructions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Instructions>("PharmacyDBModel.FK__Drugs__ID_Instru__35BCFE0A", "Instructions").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Instructions>("PharmacyDBModel.FK__Drugs__ID_Instru__35BCFE0A", "Instructions").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Instructions> InstructionsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Instructions>("PharmacyDBModel.FK__Drugs__ID_Instru__35BCFE0A", "Instructions");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Instructions>("PharmacyDBModel.FK__Drugs__ID_Instru__35BCFE0A", "Instructions", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Receipts__ID_Pro__45F365D3", "Receipts")]
+        public EntityCollection<Receipts> Receipts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Receipts>("PharmacyDBModel.FK__Receipts__ID_Pro__45F365D3", "Receipts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Receipts>("PharmacyDBModel.FK__Receipts__ID_Pro__45F365D3", "Receipts", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Employees")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Employees : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Employees.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="first_Name">Исходное значение свойства First_Name.</param>
+        /// <param name="name">Исходное значение свойства Name.</param>
+        /// <param name="surname">Исходное значение свойства Surname.</param>
+        /// <param name="iD_Position">Исходное значение свойства ID_Position.</param>
+        public static Employees CreateEmployees(global::System.Int32 id, global::System.String first_Name, global::System.String name, global::System.String surname, global::System.Int32 iD_Position)
+        {
+            Employees employees = new Employees();
+            employees.ID = id;
+            employees.First_Name = first_Name;
+            employees.Name = name;
+            employees.Surname = surname;
+            employees.ID_Position = iD_Position;
+            return employees;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String First_Name
+        {
+            get
+            {
+                return _First_Name;
+            }
+            set
+            {
+                OnFirst_NameChanging(value);
+                ReportPropertyChanging("First_Name");
+                _First_Name = StructuralObject.SetValidValue(value, false, "First_Name");
+                ReportPropertyChanged("First_Name");
+                OnFirst_NameChanged();
+            }
+        }
+        private global::System.String _First_Name;
+        partial void OnFirst_NameChanging(global::System.String value);
+        partial void OnFirst_NameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Surname
+        {
+            get
+            {
+                return _Surname;
+            }
+            set
+            {
+                OnSurnameChanging(value);
+                ReportPropertyChanging("Surname");
+                _Surname = StructuralObject.SetValidValue(value, false, "Surname");
+                ReportPropertyChanged("Surname");
+                OnSurnameChanged();
+            }
+        }
+        private global::System.String _Surname;
+        partial void OnSurnameChanging(global::System.String value);
+        partial void OnSurnameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Position
+        {
+            get
+            {
+                return _ID_Position;
+            }
+            set
+            {
+                OnID_PositionChanging(value);
+                ReportPropertyChanging("ID_Position");
+                _ID_Position = StructuralObject.SetValidValue(value, "ID_Position");
+                ReportPropertyChanged("ID_Position");
+                OnID_PositionChanged();
+            }
+        }
+        private global::System.Int32 _ID_Position;
+        partial void OnID_PositionChanging(global::System.Int32 value);
+        partial void OnID_PositionChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Employees__ID_Po__30F848ED", "Positions")]
+        public Positions Positions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Positions>("PharmacyDBModel.FK__Employees__ID_Po__30F848ED", "Positions").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Positions>("PharmacyDBModel.FK__Employees__ID_Po__30F848ED", "Positions").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Positions> PositionsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Positions>("PharmacyDBModel.FK__Employees__ID_Po__30F848ED", "Positions");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Positions>("PharmacyDBModel.FK__Employees__ID_Po__30F848ED", "Positions", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Pharmacy__ID_Dir__3A81B327", "Pharmacy")]
+        public EntityCollection<Pharmacy> Pharmacy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Pharmacy>("PharmacyDBModel.FK__Pharmacy__ID_Dir__3A81B327", "Pharmacy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Pharmacy>("PharmacyDBModel.FK__Pharmacy__ID_Dir__3A81B327", "Pharmacy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Instructions")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Instructions : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Instructions.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="age">Исходное значение свойства Age.</param>
+        /// <param name="once_Day">Исходное значение свойства Once_Day.</param>
+        public static Instructions CreateInstructions(global::System.Int32 id, global::System.Int32 age, global::System.Int32 once_Day)
+        {
+            Instructions instructions = new Instructions();
+            instructions.ID = id;
+            instructions.Age = age;
+            instructions.Once_Day = once_Day;
+            return instructions;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Age
+        {
+            get
+            {
+                return _Age;
+            }
+            set
+            {
+                OnAgeChanging(value);
+                ReportPropertyChanging("Age");
+                _Age = StructuralObject.SetValidValue(value, "Age");
+                ReportPropertyChanged("Age");
+                OnAgeChanged();
+            }
+        }
+        private global::System.Int32 _Age;
+        partial void OnAgeChanging(global::System.Int32 value);
+        partial void OnAgeChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Once_Day
+        {
+            get
+            {
+                return _Once_Day;
+            }
+            set
+            {
+                OnOnce_DayChanging(value);
+                ReportPropertyChanging("Once_Day");
+                _Once_Day = StructuralObject.SetValidValue(value, "Once_Day");
+                ReportPropertyChanged("Once_Day");
+                OnOnce_DayChanged();
+            }
+        }
+        private global::System.Int32 _Once_Day;
+        partial void OnOnce_DayChanging(global::System.Int32 value);
+        partial void OnOnce_DayChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Restrictions
+        {
+            get
+            {
+                return _Restrictions;
+            }
+            set
+            {
+                OnRestrictionsChanging(value);
+                ReportPropertyChanging("Restrictions");
+                _Restrictions = StructuralObject.SetValidValue(value, true, "Restrictions");
+                ReportPropertyChanged("Restrictions");
+                OnRestrictionsChanged();
+            }
+        }
+        private global::System.String _Restrictions;
+        partial void OnRestrictionsChanging(global::System.String value);
+        partial void OnRestrictionsChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Drugs__ID_Instru__35BCFE0A", "Drugs")]
+        public EntityCollection<Drugs> Drugs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Drugs>("PharmacyDBModel.FK__Drugs__ID_Instru__35BCFE0A", "Drugs");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Drugs>("PharmacyDBModel.FK__Drugs__ID_Instru__35BCFE0A", "Drugs", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Pharmacological_Group")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Pharmacological_Group : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Pharmacological_Group.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        public static Pharmacological_Group CreatePharmacological_Group(global::System.Int32 id)
+        {
+            Pharmacological_Group pharmacological_Group = new Pharmacological_Group();
+            pharmacological_Group.ID = id;
+            return pharmacological_Group;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, true, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Drugs__ID_Farm_G__34C8D9D1", "Drugs")]
+        public EntityCollection<Drugs> Drugs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Drugs>("PharmacyDBModel.FK__Drugs__ID_Farm_G__34C8D9D1", "Drugs");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Drugs>("PharmacyDBModel.FK__Drugs__ID_Farm_G__34C8D9D1", "Drugs", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Pharmacy")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Pharmacy : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Pharmacy.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="iD_Director">Исходное значение свойства ID_Director.</param>
+        /// <param name="phone">Исходное значение свойства Phone.</param>
+        /// <param name="name">Исходное значение свойства Name.</param>
+        /// <param name="address">Исходное значение свойства Address.</param>
+        /// <param name="hours">Исходное значение свойства Hours.</param>
+        public static Pharmacy CreatePharmacy(global::System.Int32 id, global::System.Int32 iD_Director, global::System.String phone, global::System.String name, global::System.String address, global::System.String hours)
+        {
+            Pharmacy pharmacy = new Pharmacy();
+            pharmacy.ID = id;
+            pharmacy.ID_Director = iD_Director;
+            pharmacy.Phone = phone;
+            pharmacy.Name = name;
+            pharmacy.Address = address;
+            pharmacy.Hours = hours;
+            return pharmacy;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Director
+        {
+            get
+            {
+                return _ID_Director;
+            }
+            set
+            {
+                OnID_DirectorChanging(value);
+                ReportPropertyChanging("ID_Director");
+                _ID_Director = StructuralObject.SetValidValue(value, "ID_Director");
+                ReportPropertyChanged("ID_Director");
+                OnID_DirectorChanged();
+            }
+        }
+        private global::System.Int32 _ID_Director;
+        partial void OnID_DirectorChanging(global::System.Int32 value);
+        partial void OnID_DirectorChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Phone
+        {
+            get
+            {
+                return _Phone;
+            }
+            set
+            {
+                OnPhoneChanging(value);
+                ReportPropertyChanging("Phone");
+                _Phone = StructuralObject.SetValidValue(value, false, "Phone");
+                ReportPropertyChanged("Phone");
+                OnPhoneChanged();
+            }
+        }
+        private global::System.String _Phone;
+        partial void OnPhoneChanging(global::System.String value);
+        partial void OnPhoneChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                OnAddressChanging(value);
+                ReportPropertyChanging("Address");
+                _Address = StructuralObject.SetValidValue(value, false, "Address");
+                ReportPropertyChanged("Address");
+                OnAddressChanged();
+            }
+        }
+        private global::System.String _Address;
+        partial void OnAddressChanging(global::System.String value);
+        partial void OnAddressChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Hours
+        {
+            get
+            {
+                return _Hours;
+            }
+            set
+            {
+                OnHoursChanging(value);
+                ReportPropertyChanging("Hours");
+                _Hours = StructuralObject.SetValidValue(value, false, "Hours");
+                ReportPropertyChanged("Hours");
+                OnHoursChanged();
+            }
+        }
+        private global::System.String _Hours;
+        partial void OnHoursChanging(global::System.String value);
+        partial void OnHoursChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Discounts__ID_Ph__48CFD27E", "Discounts")]
+        public EntityCollection<Discounts> Discounts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Discounts>("PharmacyDBModel.FK__Discounts__ID_Ph__48CFD27E", "Discounts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Discounts>("PharmacyDBModel.FK__Discounts__ID_Ph__48CFD27E", "Discounts", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Pharmacy__ID_Dir__3A81B327", "Employees")]
+        public Employees Employees
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employees>("PharmacyDBModel.FK__Pharmacy__ID_Dir__3A81B327", "Employees").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employees>("PharmacyDBModel.FK__Pharmacy__ID_Dir__3A81B327", "Employees").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Employees> EmployeesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Employees>("PharmacyDBModel.FK__Pharmacy__ID_Dir__3A81B327", "Employees");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Employees>("PharmacyDBModel.FK__Pharmacy__ID_Dir__3A81B327", "Employees", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Receipts__ID_Pha__440B1D61", "Receipts")]
+        public EntityCollection<Receipts> Receipts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Receipts>("PharmacyDBModel.FK__Receipts__ID_Pha__440B1D61", "Receipts");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Receipts>("PharmacyDBModel.FK__Receipts__ID_Pha__440B1D61", "Receipts", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Wishes__ID_Pharm__403A8C7D", "Wishes")]
+        public EntityCollection<Wishes> Wishes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Wishes>("PharmacyDBModel.FK__Wishes__ID_Pharm__403A8C7D", "Wishes");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Wishes>("PharmacyDBModel.FK__Wishes__ID_Pharm__403A8C7D", "Wishes", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Phones")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Phones : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Phones.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="phone">Исходное значение свойства Phone.</param>
+        public static Phones CreatePhones(global::System.Int32 id, global::System.String phone)
+        {
+            Phones phones = new Phones();
+            phones.ID = id;
+            phones.Phone = phone;
+            return phones;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Phone
+        {
+            get
+            {
+                return _Phone;
+            }
+            set
+            {
+                OnPhoneChanging(value);
+                ReportPropertyChanging("Phone");
+                _Phone = StructuralObject.SetValidValue(value, false, "Phone");
+                ReportPropertyChanged("Phone");
+                OnPhoneChanged();
+            }
+        }
+        private global::System.String _Phone;
+        partial void OnPhoneChanging(global::System.String value);
+        partial void OnPhoneChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Positions")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Positions : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Positions.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="name_Position">Исходное значение свойства Name_Position.</param>
+        /// <param name="salary">Исходное значение свойства Salary.</param>
+        public static Positions CreatePositions(global::System.Int32 id, global::System.String name_Position, global::System.Int32 salary)
+        {
+            Positions positions = new Positions();
+            positions.ID = id;
+            positions.Name_Position = name_Position;
+            positions.Salary = salary;
+            return positions;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name_Position
+        {
+            get
+            {
+                return _Name_Position;
+            }
+            set
+            {
+                OnName_PositionChanging(value);
+                ReportPropertyChanging("Name_Position");
+                _Name_Position = StructuralObject.SetValidValue(value, false, "Name_Position");
+                ReportPropertyChanged("Name_Position");
+                OnName_PositionChanged();
+            }
+        }
+        private global::System.String _Name_Position;
+        partial void OnName_PositionChanging(global::System.String value);
+        partial void OnName_PositionChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Salary
+        {
+            get
+            {
+                return _Salary;
+            }
+            set
+            {
+                OnSalaryChanging(value);
+                ReportPropertyChanging("Salary");
+                _Salary = StructuralObject.SetValidValue(value, "Salary");
+                ReportPropertyChanged("Salary");
+                OnSalaryChanged();
+            }
+        }
+        private global::System.Int32 _Salary;
+        partial void OnSalaryChanging(global::System.Int32 value);
+        partial void OnSalaryChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Employees__ID_Po__30F848ED", "Employees")]
+        public EntityCollection<Employees> Employees
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Employees>("PharmacyDBModel.FK__Employees__ID_Po__30F848ED", "Employees");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Employees>("PharmacyDBModel.FK__Employees__ID_Po__30F848ED", "Employees", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Receipts")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Receipts : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Receipts.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="iD_Pharmacy">Исходное значение свойства ID_Pharmacy.</param>
+        /// <param name="iD_Client">Исходное значение свойства ID_Client.</param>
+        /// <param name="iD_Product">Исходное значение свойства ID_Product.</param>
+        /// <param name="date">Исходное значение свойства Date.</param>
+        /// <param name="sum">Исходное значение свойства Sum.</param>
+        public static Receipts CreateReceipts(global::System.Int32 id, global::System.Int32 iD_Pharmacy, global::System.Int32 iD_Client, global::System.Int32 iD_Product, global::System.DateTime date, global::System.Int32 sum)
+        {
+            Receipts receipts = new Receipts();
+            receipts.ID = id;
+            receipts.ID_Pharmacy = iD_Pharmacy;
+            receipts.ID_Client = iD_Client;
+            receipts.ID_Product = iD_Product;
+            receipts.Date = date;
+            receipts.Sum = sum;
+            return receipts;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Pharmacy
+        {
+            get
+            {
+                return _ID_Pharmacy;
+            }
+            set
+            {
+                OnID_PharmacyChanging(value);
+                ReportPropertyChanging("ID_Pharmacy");
+                _ID_Pharmacy = StructuralObject.SetValidValue(value, "ID_Pharmacy");
+                ReportPropertyChanged("ID_Pharmacy");
+                OnID_PharmacyChanged();
+            }
+        }
+        private global::System.Int32 _ID_Pharmacy;
+        partial void OnID_PharmacyChanging(global::System.Int32 value);
+        partial void OnID_PharmacyChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Client
+        {
+            get
+            {
+                return _ID_Client;
+            }
+            set
+            {
+                OnID_ClientChanging(value);
+                ReportPropertyChanging("ID_Client");
+                _ID_Client = StructuralObject.SetValidValue(value, "ID_Client");
+                ReportPropertyChanged("ID_Client");
+                OnID_ClientChanged();
+            }
+        }
+        private global::System.Int32 _ID_Client;
+        partial void OnID_ClientChanging(global::System.Int32 value);
+        partial void OnID_ClientChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Product
+        {
+            get
+            {
+                return _ID_Product;
+            }
+            set
+            {
+                OnID_ProductChanging(value);
+                ReportPropertyChanging("ID_Product");
+                _ID_Product = StructuralObject.SetValidValue(value, "ID_Product");
+                ReportPropertyChanged("ID_Product");
+                OnID_ProductChanged();
+            }
+        }
+        private global::System.Int32 _ID_Product;
+        partial void OnID_ProductChanging(global::System.Int32 value);
+        partial void OnID_ProductChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value, "Date");
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
+        partial void OnDateChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Sum
+        {
+            get
+            {
+                return _Sum;
+            }
+            set
+            {
+                OnSumChanging(value);
+                ReportPropertyChanging("Sum");
+                _Sum = StructuralObject.SetValidValue(value, "Sum");
+                ReportPropertyChanged("Sum");
+                OnSumChanged();
+            }
+        }
+        private global::System.Int32 _Sum;
+        partial void OnSumChanging(global::System.Int32 value);
+        partial void OnSumChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Receipts__ID_Cli__44FF419A", "Clients")]
+        public Clients Clients
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Clients>("PharmacyDBModel.FK__Receipts__ID_Cli__44FF419A", "Clients").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Clients>("PharmacyDBModel.FK__Receipts__ID_Cli__44FF419A", "Clients").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Clients> ClientsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Clients>("PharmacyDBModel.FK__Receipts__ID_Cli__44FF419A", "Clients");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Clients>("PharmacyDBModel.FK__Receipts__ID_Cli__44FF419A", "Clients", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Receipts__ID_Pro__45F365D3", "Drugs")]
+        public Drugs Drugs
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Drugs>("PharmacyDBModel.FK__Receipts__ID_Pro__45F365D3", "Drugs").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Drugs>("PharmacyDBModel.FK__Receipts__ID_Pro__45F365D3", "Drugs").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Drugs> DrugsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Drugs>("PharmacyDBModel.FK__Receipts__ID_Pro__45F365D3", "Drugs");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Drugs>("PharmacyDBModel.FK__Receipts__ID_Pro__45F365D3", "Drugs", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Receipts__ID_Pha__440B1D61", "Pharmacy")]
+        public Pharmacy Pharmacy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Receipts__ID_Pha__440B1D61", "Pharmacy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Receipts__ID_Pha__440B1D61", "Pharmacy").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pharmacy> PharmacyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Receipts__ID_Pha__440B1D61", "Pharmacy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pharmacy>("PharmacyDBModel.FK__Receipts__ID_Pha__440B1D61", "Pharmacy", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Suppliers")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Suppliers : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Suppliers.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="name">Исходное значение свойства Name.</param>
+        /// <param name="country">Исходное значение свойства Country.</param>
+        public static Suppliers CreateSuppliers(global::System.Int32 id, global::System.String name, global::System.String country)
+        {
+            Suppliers suppliers = new Suppliers();
+            suppliers.ID = id;
+            suppliers.Name = name;
+            suppliers.Country = country;
+            return suppliers;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                OnIDChanging(value);
+                ReportPropertyChanging("ID");
+                _ID = StructuralObject.SetValidValue(value, "ID");
+                ReportPropertyChanged("ID");
+                OnIDChanged();
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                if (_Name != value)
+                {
+                    OnNameChanging(value);
+                    ReportPropertyChanging("Name");
+                    _Name = StructuralObject.SetValidValue(value, false, "Name");
+                    ReportPropertyChanged("Name");
+                    OnNameChanged();
+                }
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Country
+        {
+            get
+            {
+                return _Country;
+            }
+            set
+            {
+                if (_Country != value)
+                {
+                    OnCountryChanging(value);
+                    ReportPropertyChanging("Country");
+                    _Country = StructuralObject.SetValidValue(value, false, "Country");
+                    ReportPropertyChanged("Country");
+                    OnCountryChanged();
+                }
+            }
+        }
+        private global::System.String _Country;
+        partial void OnCountryChanging(global::System.String value);
+        partial void OnCountryChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Нет доступной документации по метаданным.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="PharmacyDBModel", Name="Wishes")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Wishes : EntityObject
+    {
+        #region Фабричный метод
+    
+        /// <summary>
+        /// Создание нового объекта Wishes.
+        /// </summary>
+        /// <param name="id">Исходное значение свойства ID.</param>
+        /// <param name="iD_Pharmacy">Исходное значение свойства ID_Pharmacy.</param>
+        /// <param name="iD_Clients">Исходное значение свойства ID_Clients.</param>
+        public static Wishes CreateWishes(global::System.Int32 id, global::System.Int32 iD_Pharmacy, global::System.Int32 iD_Clients)
+        {
+            Wishes wishes = new Wishes();
+            wishes.ID = id;
+            wishes.ID_Pharmacy = iD_Pharmacy;
+            wishes.ID_Clients = iD_Clients;
+            return wishes;
+        }
+
+        #endregion
+
+        #region Простые свойства
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Pharmacy
+        {
+            get
+            {
+                return _ID_Pharmacy;
+            }
+            set
+            {
+                OnID_PharmacyChanging(value);
+                ReportPropertyChanging("ID_Pharmacy");
+                _ID_Pharmacy = StructuralObject.SetValidValue(value, "ID_Pharmacy");
+                ReportPropertyChanged("ID_Pharmacy");
+                OnID_PharmacyChanged();
+            }
+        }
+        private global::System.Int32 _ID_Pharmacy;
+        partial void OnID_PharmacyChanging(global::System.Int32 value);
+        partial void OnID_PharmacyChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID_Clients
+        {
+            get
+            {
+                return _ID_Clients;
+            }
+            set
+            {
+                OnID_ClientsChanging(value);
+                ReportPropertyChanging("ID_Clients");
+                _ID_Clients = StructuralObject.SetValidValue(value, "ID_Clients");
+                ReportPropertyChanged("ID_Clients");
+                OnID_ClientsChanged();
+            }
+        }
+        private global::System.Int32 _ID_Clients;
+        partial void OnID_ClientsChanging(global::System.Int32 value);
+        partial void OnID_ClientsChanged();
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Wish
+        {
+            get
+            {
+                return _Wish;
+            }
+            set
+            {
+                OnWishChanging(value);
+                ReportPropertyChanging("Wish");
+                _Wish = StructuralObject.SetValidValue(value, true, "Wish");
+                ReportPropertyChanged("Wish");
+                OnWishChanged();
+            }
+        }
+        private global::System.String _Wish;
+        partial void OnWishChanging(global::System.String value);
+        partial void OnWishChanged();
+
+        #endregion
+
+        #region Свойства навигации
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Wishes__ID_Clien__412EB0B6", "Clients")]
+        public Clients Clients
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Clients>("PharmacyDBModel.FK__Wishes__ID_Clien__412EB0B6", "Clients").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Clients>("PharmacyDBModel.FK__Wishes__ID_Clien__412EB0B6", "Clients").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Clients> ClientsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Clients>("PharmacyDBModel.FK__Wishes__ID_Clien__412EB0B6", "Clients");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Clients>("PharmacyDBModel.FK__Wishes__ID_Clien__412EB0B6", "Clients", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("PharmacyDBModel", "FK__Wishes__ID_Pharm__403A8C7D", "Pharmacy")]
+        public Pharmacy Pharmacy
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Wishes__ID_Pharm__403A8C7D", "Pharmacy").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Wishes__ID_Pharm__403A8C7D", "Pharmacy").Value = value;
+            }
+        }
+        /// <summary>
+        /// Нет доступной документации по метаданным.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Pharmacy> PharmacyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Pharmacy>("PharmacyDBModel.FK__Wishes__ID_Pharm__403A8C7D", "Pharmacy");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Pharmacy>("PharmacyDBModel.FK__Wishes__ID_Pharm__403A8C7D", "Pharmacy", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
 
     #endregion

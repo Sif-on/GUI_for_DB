@@ -1,3 +1,4 @@
+using GUI_for_DB.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,40 +23,40 @@ namespace GUI_for_DB
             InitializeComponent();
 
             // Test Data.
-            List<Table> tablesList = new List<Table>
+            List<ClientsTalbeModel> tablesList = new();
+            
+            using (PharmacyDBEntities entities = new PharmacyDBEntities())
             {
-                new Table { FirstName="Timofey", LastName="Lastivka", JobPosition="1", Salary="5000"},
-                new Table { FirstName="Evgeniy", LastName="Simonovskiy", JobPosition="2", Salary="10000"}
-            };
-
+                List<Clients> ClientsList = entities.Clients.ToList();
+                foreach (Clients client in ClientsList)
+                {
+                    tablesList.Add(new ClientsTalbeModel(client));
+                }
+                entities.Dispose();
+            }
+            if(tablesList.Count > 0)
+                TableGrid.ItemsSource = tablesList;
+            // Mode of interacting with data
             switch (Mode)
             {
                 case 0:
                
                     TableGrid.IsReadOnly = true;
-                    TableGrid.ItemsSource = tablesList;
                     // add.Visibility = Visibility.Collapsed;
                     break;
                 case 1:
-                    TableGrid.IsReadOnly = true;
-                    TableGrid.ItemsSource = tablesList;
+                    TableGrid.IsReadOnly = false;
                     // add.Visibility = Visibility.Collapsed;
                     break;
                 case 2:
                     TableGrid.IsReadOnly = false;
-                    TableGrid.ItemsSource = tablesList;
                     // add.Visibility = Visibility.Collapsed;
                     break;
                 case 3:
                     // TableGrid.IsReadOnly = true;
                     TableGrid.CanUserDeleteRows = true;
-                    TableGrid.ItemsSource = tablesList;
                     break;
             }
-            // switch (TableName) {
-            //     case "Clients":
-            //         TableGrid.
-            // }
         }
         private void add_btn_cl(object sender, RoutedEventArgs e)
         {
@@ -68,11 +69,5 @@ namespace GUI_for_DB
             MessageBox.Show("DELETED");
         }
     }
-    public class Table
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string JobPosition { get; set; }
-        public string Salary { get; set; }
-    }
+    
 }
