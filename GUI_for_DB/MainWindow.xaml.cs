@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FinalProject
+namespace GUI_for_DB
 {
     public partial class MainWindow : Window
     {
@@ -59,7 +59,7 @@ namespace FinalProject
         
         private void click_Table_EventHandler( object sender, RoutedEventArgs e){
             Button b = (Button)sender;
-            DBVisualizer w = new DBVisualizer(selectedMode, b.Name);
+            DBWindow w = new DBWindow(selectedMode, b.Name);
             w.Show();
         }
     }

@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI_for_BD
+namespace GUI_for_DB
 {
     public partial class DBWindow : Window
     {
