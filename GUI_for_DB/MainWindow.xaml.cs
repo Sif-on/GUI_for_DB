@@ -17,7 +17,7 @@ namespace FinalProject
 {
     public partial class MainWindow : Window
     {
-        private int selectedIndex = 0;
+        private int selectedMode = 0;
         public MainWindow() {
             InitializeComponent();
         }
@@ -30,28 +30,28 @@ namespace FinalProject
                     InsertBtn.Background = Brushes.Gray;
                     EditBtn.Background = Brushes.Gray;
                     DeleteBtn.Background = Brushes.Gray;
-                    selectedIndex = 0;
+                    selectedMode = 0;
                     break;
                 case "InsertBtn":
                     ViewBtn.Background = Brushes.Gray;
                     InsertBtn.Background = Brushes.White;
                     EditBtn.Background = Brushes.Gray;
                     DeleteBtn.Background = Brushes.Gray;
-                    selectedIndex = 1;
+                    selectedMode = 1;
                     break;
                 case "EditBtn":
                     ViewBtn.Background = Brushes.Gray;
                     InsertBtn.Background = Brushes.Gray;
                     EditBtn.Background = Brushes.White;
                     DeleteBtn.Background = Brushes.Gray;
-                    selectedIndex = 2;
+                    selectedMode = 2;
                     break;
                 default:
                     ViewBtn.Background = Brushes.Gray;
                     InsertBtn.Background = Brushes.Gray;
                     EditBtn.Background = Brushes.Gray;
                     DeleteBtn.Background = Brushes.White;
-                    selectedIndex = 3;
+                    selectedMode = 3;
                     break;
                 
             }
@@ -59,7 +59,7 @@ namespace FinalProject
         
         private void click_Table_EventHandler( object sender, RoutedEventArgs e){
             Button b = (Button)sender;
-            DBVisualizer w = new DBVisualizer();
+            DBVisualizer w = new DBVisualizer(selectedMode, b.Name);
             w.Show();
         }
     }
