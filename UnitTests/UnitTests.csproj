@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -15,6 +15,10 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GUI_for_DB\GUI_for_DB.csproj" />
   </ItemGroup>
 
 </Project>
