@@ -47,9 +47,9 @@
         <RichTextBox
         Margin="10,100,10,10"/>
 
-        <Button Content="✓" HorizontalAlignment="Left" Margin="585,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Button_Click_1" BorderBrush="#FF429A23" Foreground="#FF429A23"/>
-        <Button Content="✗" HorizontalAlignment="Left" Margin="620,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Button_Click" BorderBrush="#FFB13131" Foreground="#FFB13131"/>
-        <Button Content="🗑" HorizontalAlignment="Left" Margin="655,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Foreground="#FFC37E29" BorderBrush="#FFC37E29"/>
+        <Button Content="✓" HorizontalAlignment="Left" Margin="585,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Apply_clicked" BorderBrush="#FF429A23" Foreground="#FF429A23"/>
+        <Button Content="✗" HorizontalAlignment="Left" Margin="620,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Cancel_clicked" BorderBrush="#FFB13131" Foreground="#FFB13131"/>
+        <Button Content="🗑" HorizontalAlignment="Left" Margin="655,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Delete_clicked" BorderBrush="#FFC37E29" Foreground="#FFC37E29"/>
         <TextBlock HorizontalAlignment="Left" Margin="68,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="uk-ua" Text="ШАГ 1"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="268,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Text="ШАГ "/><Run Language="uk-ua" Text="2"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="468,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Text="ШАГ "/><Run Language="uk-ua" Text="3"/></TextBlock>
