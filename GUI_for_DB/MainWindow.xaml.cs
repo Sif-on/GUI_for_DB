@@ -20,9 +20,13 @@ namespace GUI_for_DB
         private int selectedMode = 0;
         public MainWindow() {
             InitializeComponent();
+            /*using(PharmacyDBEntities db = new PharmacyDBEntities())
+            {
+                db.Clients.;
+            }*/
         }
 
-        private void clicked_btn_EventHandler(object sender, RoutedEventArgs e) {
+        /*private void clicked_btn_EventHandler(object sender, RoutedEventArgs e) {
             Button b = (Button)sender;
             switch (b.Name) {
                 case "ViewBtn":
@@ -61,6 +65,6 @@ namespace GUI_for_DB
             Button b = (Button)sender;
             DBWindow w = new DBWindow(selectedMode, b.Name);
             w.Show();
-        }
+        }*/
     }
 }

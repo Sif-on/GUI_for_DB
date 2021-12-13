@@ -22,9 +22,19 @@ namespace GUI_for_DB
             //TableWindow init.
             InitializeComponent();
 
+            // Examples
+            //using (PharmacyDBEntities db = new PharmacyDBEntities())
+            //{
+            //    db.Connection..LazyLoadingEnabled = false;
+            //    var res = db..Find();
+            //    db.Clients.Add(client);
+            //    db.SaveChanges();
+            //    db.Dispose();
+            //}
+
             // Test Data.
-            List<ClientsTalbeModel> tablesList = new();
-            
+            /*List<ClientsTalbeModel> tablesList = new();
+
             using (PharmacyDBEntities entities = new())
             {
                 List<Clients> ClientsList = entities.Clients.ToList();
@@ -32,7 +42,7 @@ namespace GUI_for_DB
                 {
                     tablesList.Add(new ClientsTalbeModel(client));
                 }
-                if(tablesList.Count > 0)
+                if (tablesList.Count > 0)
                     TableGrid.ItemsSource = tablesList.ToList();
                 entities.Dispose();
             }
@@ -41,7 +51,7 @@ namespace GUI_for_DB
             switch (Mode)
             {
                 case 0:
-               
+
                     TableGrid.IsReadOnly = true;
                     // add.Visibility = Visibility.Collapsed;
                     break;
@@ -57,9 +67,9 @@ namespace GUI_for_DB
                     // TableGrid.IsReadOnly = true;
                     TableGrid.CanUserDeleteRows = true;
                     break;
-            }
+            }*/
         }
-        private void add_btn_cl(object sender, RoutedEventArgs e)
+        /*private void add_btn_cl(object sender, RoutedEventArgs e)
         {
             Button add = (Button)sender;
             MessageBox.Show("DELETED");
@@ -68,7 +78,7 @@ namespace GUI_for_DB
         {
             Button del = (Button)sender;
             MessageBox.Show("DELETED");
-        }
+        }*/
     }
     
 }

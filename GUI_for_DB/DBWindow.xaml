@@ -13,14 +13,14 @@
                   AutoGenerateColumns="True">
             <DataGrid.Columns>
             </DataGrid.Columns>
-        <Button x:Name="add_btn" Content="Добавить"
+        <!--<Button x:Name="add_btn" Content="Добавить"
             HorizontalContentAlignment="Center" 
             VerticalContentAlignment="Center"
             Click="add_btn_cl"/>
         <Button x:Name="del_btn" Content="Удалить"
             HorizontalContentAlignment="Center" 
             VerticalContentAlignment="Center"
-            Click="del_btn_cl"/>
+            Click="del_btn_cl"/>-->
         </DataGrid>
     </Grid>
 
