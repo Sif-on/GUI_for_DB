@@ -1,3 +1,6 @@
+/*
+TODO: Database migrations
+
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -33,3 +36,4 @@ public static void Main(string[] args)
         .MigrateDatabase<PHDatabaseContext>()
         .Run();
 }
+*/
