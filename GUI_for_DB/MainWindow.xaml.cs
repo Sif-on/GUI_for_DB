@@ -26,6 +26,26 @@ namespace GUI_for_DB
             }*/
         }
 
+        private void ValueCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
         /*private void clicked_btn_EventHandler(object sender, RoutedEventArgs e) {
             Button b = (Button)sender;
             switch (b.Name) {
