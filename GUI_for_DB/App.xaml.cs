@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace FinalProject
+namespace GUI_for_DB
 {
     /// <summary>
     /// Interaction logic for App.xaml
