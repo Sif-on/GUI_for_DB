@@ -8,65 +8,53 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="GuiForDB" Height="250" Width="720">
-
     <Grid Margin="5,5,5,5">
         <ComboBox x:Name="TableCombo"
         Height="30" 
         Width="150"
         VerticalAlignment="Top" 
         HorizontalAlignment="Left" 
-        Margin="10,10,10,10"
+        Margin="10,30,0,0"
         Padding="10"
-        MaxDropDownHeight="307"
-        SelectionChanged="TableCombo_SelectionChanged"/>
+        MaxDropDownHeight="307"/>
 
         <TextBlock
-        Margin="176,15,0,0"
-        Text=">>" HorizontalAlignment="Left"
-        VerticalAlignment="Top"/>
+        Margin="176,35,0,0"
+        Text=">>" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <ComboBox x:Name="FieldCombo"
         Height="30"
         Width="150"
         VerticalAlignment="Top"
         HorizontalAlignment="Left"
-        Margin="210,10,10,10"
+        Margin="210,30,0,0"
         Padding="10" 
-        MaxDropDownHeight="307"
-        SelectionChanged="FieldCombo_SelectionChanged"/>
+        MaxDropDownHeight="307"/>
 
         <TextBlock
-        Margin="376,15,0,0"
-        Text=">>" HorizontalAlignment="Left"
-        VerticalAlignment="Top"/>
+        Margin="376,35,0,0"
+        Text=">>" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         <ComboBox x:Name="ValueCombo"
         Height="30"
         Width="150"
         VerticalAlignment="Top"
         HorizontalAlignment="Left"
-        Margin="410,10,0,0"
+        Margin="410,30,0,0"
         Padding="10" 
-        MaxDropDownHeight="303"
-        SelectionChanged="ValueCombo_SelectionChanged"/>
+        MaxDropDownHeight="303" SelectionChanged="ValueCombo_SelectionChanged"/>
 
-        <RichTextBox x:Name="TextEditBlock"
-        Margin="10,77,10,10"/>
+        <RichTextBox
+        Margin="10,100,10,10"/>
 
-        <Button x:Name="Apply"
-        Content="✓"
-        HorizontalAlignment="Left"
-        Margin="585,10,0,0"
-        VerticalAlignment="Top"
-        Width="30" Height="30"
-        BorderBrush="#FF429A23" Foreground="#FF429A23"
-        Click="Apply_clicked"/>
-        
-        <Button x:Name="Cancel"
-                Content="✗" HorizontalAlignment="Left" Margin="620,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Cancel_clicked" BorderBrush="#FFB13131" Foreground="#FFB13131"/>
-        <Button x:Name="Delete" Content="🗑" HorizontalAlignment="Left" Margin="655,10,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Delete_clicked"  Foreground="#FFC37E29" BorderBrush="#FFC37E29"/>
-        <TextBlock HorizontalAlignment="Left" Margin="60,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="uk-ua" Text="ШАГ 1"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="268,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Text="ШАГ "/><Run Language="uk-ua" Text="2"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="468,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Text="ШАГ "/><Run Language="uk-ua" Text="3"/></TextBlock>
+        <Button Content="✓" HorizontalAlignment="Left" Margin="585,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Button_Click_1" BorderBrush="#FF429A23" Foreground="#FF429A23"/>
+        <Button Content="✗" HorizontalAlignment="Left" Margin="620,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Button_Click" BorderBrush="#FFB13131" Foreground="#FFB13131"/>
+        <Button Content="🗑" HorizontalAlignment="Left" Margin="655,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Foreground="#FFC37E29" BorderBrush="#FFC37E29"/>
+        <TextBlock HorizontalAlignment="Left" Margin="68,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="uk-ua" Text="ШАГ 1"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="268,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Text="ШАГ "/><Run Language="uk-ua" Text="2"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="468,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Text="ШАГ "/><Run Language="uk-ua" Text="3"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="58,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="ru-ru" Text="ТАБЛИЦА"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="269,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="ru-ru" Text="ПОЛЕ"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="461,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="ru-ru" Text="ДАННЫЕ"/></TextBlock>
     </Grid>
 </Window>
