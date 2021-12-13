@@ -7,7 +7,7 @@
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="GuiForDB" Height="250" Width="720">
+        Title="GuiForDB" Height="250" Width="720" Background="#FF252525">
     <Grid Margin="5,5,5,5">
         <ComboBox x:Name="TableCombo"
         Height="30" 
@@ -44,17 +44,26 @@
         Padding="10" 
         MaxDropDownHeight="303" SelectionChanged="ValueCombo_SelectionChanged"/>
 
-        <RichTextBox
-        Margin="10,100,10,10"/>
-
+        <RichTextBox Margin="10,100,10,10" Height="300"/>
         <Button Content="✓" HorizontalAlignment="Left" Margin="585,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Apply_clicked" BorderBrush="#FF429A23" Foreground="#FF429A23"/>
         <Button Content="✗" HorizontalAlignment="Left" Margin="620,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Cancel_clicked" BorderBrush="#FFB13131" Foreground="#FFB13131"/>
         <Button Content="🗑" HorizontalAlignment="Left" Margin="655,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Delete_clicked" BorderBrush="#FFC37E29" Foreground="#FFC37E29"/>
-        <TextBlock HorizontalAlignment="Left" Margin="68,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="uk-ua" Text="ШАГ 1"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="268,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Text="ШАГ "/><Run Language="uk-ua" Text="2"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="468,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Text="ШАГ "/><Run Language="uk-ua" Text="3"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="58,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="ru-ru" Text="ТАБЛИЦА"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="269,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="ru-ru" Text="ПОЛЕ"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="461,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF208BCE"><Run Language="ru-ru" Text="ДАННЫЕ"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="67,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 1"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="268,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 2"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="468,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 3"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="64,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29" FontFamily="Quicksand"><Run Language="en-en" Text="TABLE"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="269,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="FIELD"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="471,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="DATA"/></TextBlock>
+
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="./#Quirlycues"/>
+                <Setter Property="Foreground" Value="{StaticResource ControlBackgroundOver}"/>
+                <Setter Property="Margin" Value="10,10,10,6"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
     </Grid>
+
 </Window>
