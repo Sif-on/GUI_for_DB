@@ -12,27 +12,81 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Data.Entity.Infrastructure;
 
 namespace GUI_for_DB
 {
     public partial class MainWindow : Window
     {
         //private int selectedMode = 0;
-        public MainWindow() {
+        public MainWindow()
+        {
             InitializeComponent();
+            initGUI();
+        }
+
+        private void initGUI()
+        {
+            TextEditBox.IsEnabled = false;
+            TableCombo.Items.Add("Clients");
+            TableCombo.Items.Add("Instructions");
         }
 
         private void TableCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            /*using (PharmacyContext db = new PharmacyContext())
+            {
+                
+                switch (TableCombo.Items.CurrentItem.ToString())
+                {
+                    case "Clients":
+                        FieldCombo.Items.Add("Name");
+                        FieldCombo.Items.Add("Surname");
+                        return;
+                }
+            }*/
         }
 
         private void FieldCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            /*using (PharmacyContext db = new PharmacyContext())
+            {
+                
+                switch (FieldCombo.Items.CurrentItem)
+                {
+                    case "Name":
+                        TextEditBox.IsEnabled = true;
+                        var Names = db.Clients.ToList();
 
+                        foreach (var el in Names)
+                        {
+                            ValueCombo.Items.Add(el);
+                        }
+                        break;
+                }
+            }*/
         }
 
         private void ValueCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Apply_clicked(object sender, RoutedEventArgs e)
+        {
+            /*using (PharmacyContext db = new PharmacyContext())
+            {
+                Client Client1 = new Client { Name = "Timofey", Surname = "Lastochka" };
+
+                db.Clients.Add(Client1);
+                db.SaveChanges();
+            }*/
+        }
+
+        private void Cancel_clicked(object sender, RoutedEventArgs e)
         {
 
         }
@@ -41,63 +95,6 @@ namespace GUI_for_DB
         {
 
         }
-
-        private void Apply_clicked(object sender, RoutedEventArgs e)
-        {
-            using(PharmacyContext db = new PharmacyContext())
-            {
-                Client Client1 = new Client { Name = "Timofey", Surname = "Lastochka" };
-
-                db.Clients.Add(Client1);
-                db.SaveChanges();
-            }
-        }
-
-        private void Cancel_clicked(object sender, RoutedEventArgs e)
-        {
-            /*using (PharmacyContext db = new PharmacyContext())
-            {
-                var bd = db.Clients.ToList();
-
-                foreach (var el in bd)
-                {
-                    TextEditBlock.AppendText($"{el.Name}");
-                }
-            }*/
-        }
-     /*private void clicked_btn_EventHandler(object sender, RoutedEventArgs e) {
-            Button b = (Button)sender;
-            switch (b.Name) {
-                case "ViewBtn":
-                    ViewBtn.Background = Brushes.White;
-                    InsertBtn.Background = Brushes.Gray;
-                    EditBtn.Background = Brushes.Gray;
-                    DeleteBtn.Background = Brushes.Gray;
-                    selectedMode = 0;
-                    break;
-                case "InsertBtn":
-                    ViewBtn.Background = Brushes.Gray;
-                    InsertBtn.Background = Brushes.White;
-                    EditBtn.Background = Brushes.Gray;
-                    DeleteBtn.Background = Brushes.Gray;
-                    selectedMode = 1;
-                    break;
-                case "EditBtn":
-                    ViewBtn.Background = Brushes.Gray;
-                    InsertBtn.Background = Brushes.Gray;
-                    EditBtn.Background = Brushes.White;
-                    DeleteBtn.Background = Brushes.Gray;
-                    selectedMode = 2;
-                    break;
-                default:
-                    ViewBtn.Background = Brushes.Gray;
-                    InsertBtn.Background = Brushes.Gray;
-                    EditBtn.Background = Brushes.Gray;
-                    DeleteBtn.Background = Brushes.White;
-                    selectedMode = 3;
-                    break;
-                
-            }
-        }*/
     }
 }
+

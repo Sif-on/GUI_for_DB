@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         Title="GuiForDB" Height="250" Width="720" Background="#FF252525">
     <Grid Margin="5,5,5,5">
+
         <ComboBox x:Name="TableCombo"
         Height="30" 
         Width="150"
@@ -16,7 +17,8 @@
         HorizontalAlignment="Left" 
         Margin="10,30,0,0"
         Padding="10"
-        MaxDropDownHeight="307"/>
+        MaxDropDownHeight="307"
+        SelectionChanged="TableCombo_SelectionChanged"/>
 
         <TextBlock
         Margin="176,35,0,0"
@@ -29,7 +31,8 @@
         HorizontalAlignment="Left"
         Margin="210,30,0,0"
         Padding="10" 
-        MaxDropDownHeight="307"/>
+        MaxDropDownHeight="307"
+        SelectionChanged="FieldCombo_SelectionChanged"/>
 
         <TextBlock
         Margin="376,35,0,0"
@@ -42,9 +45,10 @@
         HorizontalAlignment="Left"
         Margin="410,30,0,0"
         Padding="10" 
-        MaxDropDownHeight="303" SelectionChanged="ValueCombo_SelectionChanged"/>
+        MaxDropDownHeight="303"
+        SelectionChanged="ValueCombo_SelectionChanged"/>
 
-        <RichTextBox Margin="10,100,10,10" Height="300"/>
+        <RichTextBox x:Name="TextEditBox" Margin="10,100,10,10" Height="Auto"/>
         <Button Content="✓" HorizontalAlignment="Left" Margin="585,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Apply_clicked" BorderBrush="#FF429A23" Foreground="#FF429A23"/>
         <Button Content="✗" HorizontalAlignment="Left" Margin="620,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Cancel_clicked" BorderBrush="#FFB13131" Foreground="#FFB13131"/>
         <Button Content="🗑" HorizontalAlignment="Left" Margin="655,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Delete_clicked" BorderBrush="#FFC37E29" Foreground="#FFC37E29"/>
