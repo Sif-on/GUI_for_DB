@@ -25,14 +25,19 @@ namespace GUI_for_DB
         public MainWindow()
         {
             InitializeComponent();
-            initGUI();
+            InitGUI();
+            using (PharmacyContext db = new PharmacyContext())
+            {
+
+            }
+
         }
 
-        private void initGUI()
+        private static void InitGUI()
         {
-            TextEditBox.IsEnabled = false;
-            TableCombo.Items.Add("Clients");
-            TableCombo.Items.Add("Instructions");
+            /*TextEditBox.IsEnabled = false;*/
+            /*TableCombo.Items.Add("Clients");
+            TableCombo.Items.Add("Instructions");*/
         }
 
         private void TableCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -72,7 +77,7 @@ namespace GUI_for_DB
 
         private void ValueCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void Apply_clicked(object sender, RoutedEventArgs e)
@@ -88,12 +93,18 @@ namespace GUI_for_DB
 
         private void Cancel_clicked(object sender, RoutedEventArgs e)
         {
-
+            if (e.OriginalSource == Cancel_btn) TextEditBox.Document.Blocks.Clear();
         }
 
         private void Delete_clicked(object sender, RoutedEventArgs e)
         {
-
+            
+            /*if (e.OriginalSource == Cancel_btn)
+            {
+                *//*TextEditBox.Document.Blocks.Clear();*//*
+                TextEditBox.AppendText("Hellp!");
+            }*/
+            
         }
     }
 }
