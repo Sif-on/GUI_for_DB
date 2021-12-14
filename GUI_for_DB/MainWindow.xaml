@@ -79,8 +79,8 @@
                 <Setter Property="FontSize" Value="14"/>
                 <Setter Property="FontFamily" Value="./#Quirlycues"/>
                 <Setter Property="Foreground" Value="{StaticResource ControlBackgroundOver}"/>
-                <Setter Property="Margin" Value="10,10,10,6"/>
-                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="1,1"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
             </Style>
         </Grid.Resources>
     </Grid>
