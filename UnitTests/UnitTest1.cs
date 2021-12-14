@@ -1,12 +1,15 @@
 using NUnit.Framework;
 
-namespace UnitTests
+namespace GUI_for_DB
 {
+    [TestFixture]
     public class Tests
     {
+        private MainWindow MainWin;
         [SetUp]
         public void Setup()
         {
+            MainWin = new MainWindow();
         }
 
         [Test]

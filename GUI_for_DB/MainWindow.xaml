@@ -18,7 +18,22 @@
         Margin="10,30,0,0"
         Padding="10"
         MaxDropDownHeight="307"
-        SelectionChanged="TableCombo_SelectionChanged"/>
+        SelectionChanged="TableCombo_SelectionChanged">
+            <ComboBoxItem IsSelected="True">
+                <TextBlock x:Name="TableClientsTxt" Text="Clients"/>
+            </ComboBoxItem>
+            <TextBlock x:Name="TableDiscountsTxt" Text="Discounts"/>
+            <TextBlock x:Name="TableDrugsTxt" Text="Drugs"/>
+            <TextBlock x:Name="TableEmployeesTxt" Text="Employees"/>
+            <TextBlock x:Name="TableInstructionsTxt" Text="Instructions"/>
+            <TextBlock x:Name="TablePharmalogicalGroupTxt" Text="Pharmalogical Group"/>
+            <TextBlock x:Name="TablePharmacyTxt" Text="Pharmacy"/>
+            <TextBlock x:Name="TablePhonesTxt" Text="Phones"/>
+            <TextBlock x:Name="TablePositionsTxt" Text="Positions"/>
+            <TextBlock x:Name="TableReceiptsTxt" Text="Receipts"/>
+            <TextBlock x:Name="TableSuppliersTxt" Text="Suppliers"/>
+            <TextBlock x:Name="TableWishesTxt" Text="Wishes"/>
+        </ComboBox>
 
         <TextBlock
         Margin="176,35,0,0"
@@ -49,9 +64,9 @@
         SelectionChanged="ValueCombo_SelectionChanged"/>
 
         <RichTextBox x:Name="TextEditBox" Margin="10,100,10,10" Height="Auto"/>
-        <Button Content="✓" HorizontalAlignment="Left" Margin="585,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Apply_clicked" BorderBrush="#FF429A23" Foreground="#FF429A23"/>
-        <Button Content="✗" HorizontalAlignment="Left" Margin="620,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Cancel_clicked" BorderBrush="#FFB13131" Foreground="#FFB13131"/>
-        <Button Content="🗑" HorizontalAlignment="Left" Margin="655,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Delete_clicked" BorderBrush="#FFC37E29" Foreground="#FFC37E29"/>
+        <Button x:Name="Apply_btn" Content="✓" HorizontalAlignment="Left" Margin="585,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Apply_clicked" BorderBrush="#FF429A23" Foreground="#FF429A23" ClickMode="Press"/>
+        <Button x:Name="Cancel_btn" Content="✗" HorizontalAlignment="Left" Margin="620,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Cancel_clicked" BorderBrush="#FFB13131" Foreground="#FFB13131" ClickMode="Press"/>
+        <Button x:Name="Delete_btn" Content="🗑" HorizontalAlignment="Left" Margin="655,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Delete_clicked" BorderBrush="#FFC37E29" Foreground="#FFC37E29" ClickMode="Press"/>
         <TextBlock HorizontalAlignment="Left" Margin="67,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 1"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="268,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 2"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="468,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 3"/></TextBlock>
