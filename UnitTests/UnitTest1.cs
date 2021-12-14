@@ -5,11 +5,11 @@ namespace GUI_for_DB
     [TestFixture]
     public class Tests
     {
-        private MainWindow MainWin;
+        /*private MainWindow MainWin;*/
         [SetUp]
         public void Setup()
         {
-            MainWin = new MainWindow();
+            /*MainWin = new MainWindow();*/
         }
 
         [Test]
