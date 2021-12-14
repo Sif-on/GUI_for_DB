@@ -67,12 +67,12 @@
         <Button x:Name="Apply_btn" Content="✓" HorizontalAlignment="Left" Margin="585,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Apply_clicked" BorderBrush="#FF429A23" Foreground="#FF429A23" ClickMode="Press"/>
         <Button x:Name="Cancel_btn" Content="✗" HorizontalAlignment="Left" Margin="620,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Cancel_clicked" BorderBrush="#FFB13131" Foreground="#FFB13131" ClickMode="Press"/>
         <Button x:Name="Delete_btn" Content="🗑" HorizontalAlignment="Left" Margin="655,30,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="Delete_clicked" BorderBrush="#FFC37E29" Foreground="#FFC37E29" ClickMode="Press"/>
-        <TextBlock HorizontalAlignment="Left" Margin="67,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 1"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="268,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 2"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="468,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="STEP 3"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="64,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29" FontFamily="Quicksand"><Run Language="en-en" Text="TABLE"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="269,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="FIELD"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="471,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29"><Run Language="en-en" Text="DATA"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="69,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29" FontFamily="Quirlycues"><Run Language="en-en" Text="Step 1"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="269,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29" FontFamily="Quirlycues"><Run Language="en-en" Text="Step 2"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="469,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29" FontFamily="Quirlycues"><Run Language="en-en" Text="Step 3"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="63,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29" FontFamily="Quirlycues"><Run Language="en-en" Text="Table" FontSize="20"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="266,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29" FontFamily="Quirlycues"><Run Language="en-en" Text="Field" FontSize="20"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="467,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFC37E29" FontFamily="Quirlycues"><Run Language="en-en" Text="Data" FontSize="20"/></TextBlock>
 
         <Grid.Resources>
             <Style TargetType="TextBlock">
